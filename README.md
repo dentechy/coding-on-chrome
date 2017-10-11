@@ -45,7 +45,11 @@ https://chrome.google.com/webstore/detail/secure-shell/pnhechapfaindjhompbnflcld
 
 Once the Secure Shell extension is installed, you will want to change its default behavior from opening in a window to opening in a tab. This will make life much easier when developing web pages and needing to see on the fly changes. Also be sure to enable the bookmark bar on Chrome, so that you can easily bookmark the extension for easy access in the future. See images below for details.
 
-[images placeholder]
+![chrome-extension-menu](assets/chrome1.png) ![chrome-bookmarks](assets/chrome-bookmarks.png)
+
+In the extensions menu, scroll down till you find Secure Shell and click "Details". From there, change the option from "Open as window" to "Open in a tab". 
+
+![chrome-secure-shell](assets/chrome-ssh1.PNG) ![chrome-secure-shell2](assets/chrome-ssh2.PNG)
 
 The next series of steps will diverge considerably, depending on your platform of choice and whether or not you already have an ssh server setup. Skip to the ssh server login section below if you already have an ssh server running with ssh keys. Keys are recommended over passwords for security purposes.
 
