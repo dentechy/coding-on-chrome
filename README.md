@@ -43,5 +43,32 @@ https://chrome.google.com/webstore/detail/secure-shell/pnhechapfaindjhompbnflcld
 
 ## Secure Shell extension setup
 
-Once the Secure Shell extension is installed, you will want to change its default behavior from opening in a window to opening in a tab. This will make life much easier when developing web pages and needing to see on the fly changes. Also be sure to enable the bookmark bar on Chrome, so that you can easily bookmark the extension as shown below for easy access in the future.
+Once the Secure Shell extension is installed, you will want to change its default behavior from opening in a window to opening in a tab. This will make life much easier when developing web pages and needing to see on the fly changes. Also be sure to enable the bookmark bar on Chrome, so that you can easily bookmark the extension for easy access in the future. See images below for details.
+
+[images placeholder]
+
+The next series of steps will diverge considerably, depending on your platform of choice and whether or not you already have an ssh server setup. Skip to the ssh server login section below if you already have an ssh server running with ssh keys. Keys are recommended over passwords for security purposes.
+
+## Setting up the SSH server
+
+### mac OS
+
+The author unfortunately does not have access to a mac OS system to confirm setup instructions of the ssh server. However Apple, on their support page has instructions on how to setup an ssh server on your MacBook or any mac OS system you may own. View instructions [here](https://support.apple.com/kb/PH25252?viewlocale=en_US&locale=en_US).
+
+### Linux
+
+Instructions for setting up an SSH server will vary between distributions. However, the general flow should be more or less the same.
+
+For Ubuntu- and Debian-based distributions, use the following command to ensure that the ssh server is installed:
+
+`sudo apt-get update && sudo apt-get install openssh-server`  [updates list of packages and installs ssh server]
+
+Ubuntu and Debian-based distributions should automatically have the ssh server configured to run at boot time.
+
+For Fedora:
+
+`sudo dnf install openssh-server` [installs ssh server]
+`sudo systemctl enable sshd.service`  [starts ssh server automatically at boot time]
+
+Given the large number of Linux distributions, it is impossible to cover each one here. But the general setup remains the same: install the ssh server and make sure it is configured to automatically run at boot time.
 
