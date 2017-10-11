@@ -31,4 +31,17 @@ The general flow is the same across platforms:
 
 However, the general details will differ depending on your platform of choice. Throughout the tutorial, platform-specific installation issues will be addressed.
 
-## Software Installation
+## Chrome browser installation
+
+Visit the following link to install Google Chrome:
+
+https://www.google.com/chrome/browser/desktop/index.html
+
+Install the Secure Shell Chrome Extension:
+
+https://chrome.google.com/webstore/detail/secure-shell/pnhechapfaindjhompbnflcldabbghjo?hl=en
+
+## Secure Shell extension setup
+
+Once the Secure Shell extension is installed, you will want to change its default behavior from opening in a window to opening in a tab. This will make life much easier when developing web pages and needing to see on the fly changes. Also be sure to enable the bookmark bar on Chrome, so that you can easily bookmark the extension as shown below for easy access in the future.
+
