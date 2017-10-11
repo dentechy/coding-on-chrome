@@ -85,9 +85,10 @@ Windows 10 users can rejoice as Microsoft partnered with Canonical to create Bas
     * Change `Port` to 2222 (or any other port above 1000)
     * Change `UsePrivilegeSeparation` to no
 
-  * sudo service ssh --full-restart [restarts ssh server] 
+  * `sudo service ssh --full-restart` [restarts ssh server] 
 
 2. The ssh server must be turned on every time you run Bash on Ubuntu on Windows, as by default it is off. Use this command to turn it on:
+
 `sudo service ssh start` [starts ssh server]
 
 
