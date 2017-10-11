@@ -73,3 +73,22 @@ For Fedora:
 
 Given the large number of Linux distributions, it is impossible to cover each one here. But the general setup remains the same: install the ssh server and make sure it is configured to automatically run at boot time.
 
+### Windows 10
+
+Windows 10 users can rejoice as Microsoft partnered with Canonical to create Bash on Ubuntu on Windows, running through a technology called the Windows Subsystem for Linux. Most command line based tools should work with this tool, including the ssh server. There are a few details to address though for this to properly work.
+
+1. Run the following commands to install the ssh server:
+  * `sudo apt-get install openssh-server` [installs ssh server]
+
+  * `sudo vi /etc/ssh/sshd_config`  [opens sshd_config file in vim]
+
+    * Change `Port` to 2222 (or any other port above 1000)
+    * Change `UsePrivilegeSeparation` to no
+
+  * sudo service ssh --full-restart [restarts ssh server] 
+
+2. The ssh server must be turned on every time you run Bash on Ubuntu on Windows, as by default it is off. Use this command to turn it on:
+`sudo service ssh start` [starts ssh server]
+
+
+
