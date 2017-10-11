@@ -68,6 +68,7 @@ Ubuntu and Debian-based distributions should automatically have the ssh server c
 For Fedora:
 
 `sudo dnf install openssh-server` [installs ssh server]
+
 `sudo systemctl enable sshd.service`  [starts ssh server automatically at boot time]
 
 Given the large number of Linux distributions, it is impossible to cover each one here. But the general setup remains the same: install the ssh server and make sure it is configured to automatically run at boot time.
