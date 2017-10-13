@@ -116,7 +116,7 @@ Windows 10 users can rejoice as Microsoft partnered with Canonical to create Bas
 
 ### Chrome OS
 
-Google's Chrome OS system does not normally permit access to a full-fledged terminal. A simple terminal can be opened up using ctrl + alt + t, but this combination won't give you the fully capabilities of a Linux shell. It is therefore highly recommended that you install `crouton`, short for Chromium OS Universal Chroot Environment.
+Google's Chrome OS system does not normally permit access to a full-fledged terminal. A simple terminal can be opened up using ctrl + alt + t, but this combination won't give you the full capabilities of a Linux shell. It is therefore highly recommended that you install `crouton`, short for Chromium OS Universal Chroot Environment.
 
 You can view documentation on how to install crouton [here](https://github.com/dnschneid/crouton). Please note that this requires putting your chromebook in developer mode! It is recommended that you only install a command line (i.e. server) version of Ubuntu, as running another desktop environment on top of Chrome OS may slow things down. The relevant command for a CLI-only installation of crouton is:
 
@@ -125,21 +125,15 @@ You can view documentation on how to install crouton [here](https://github.com/d
 Setting up the actual ssh server requires a few additional steps:
 
 1. Install ssh server:
-
   * `sudo apt-get update && sudo apt-get install openssh-server`
 
 2. Install iptables:
-
   * `sudo apt-get install iptables`
 
 3. Open the file `/etc/rc.local` to open firewall for ssh server:
-
   * `vi /etc/rc.local`
-  
   * Add this line to the file before the `exit 0`
-    
     * `/sbin/iptables -I INPUT -p tcp --dport 22 -j ACCEPT`
-
 4. To enable ssh into chroot, add these lines to `/etc/rc.local`
 
 ```
