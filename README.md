@@ -100,7 +100,7 @@ Windows 10 users can rejoice as Microsoft partnered with Canonical to create Bas
   * Create a sshd.bat file and edit it with the following commands:
     * `vi sshd.bat`
     * Add the following code: `C:\Windows\System32\bash.exe -c "sudo /usr/sbin/sshd -D"`
-    * Save the file and move it to a more accessible location such as `/mnt/c/Users/YourUserName/Documents`. Take note of this location for the next step as in Windows language this corresponds to `C:\Users\YourUserName\Documents`
+    * Save the file and move it to a more accessible location, e.g. `cd /mnt/c/Users/YourUserName/Documents`. Make sure to match your username! Take note of this location for the next step as in Windows language this corresponds to `C:\Users\YourUserName\Documents`
   * Create a sshd.vbs file and edit it with the following commands:
     * `vi sshd.vbs` 
     * Add the following code, making sure to put in your actual user name: 
@@ -115,9 +115,9 @@ Windows 10 users can rejoice as Microsoft partnered with Canonical to create Bas
 
 ### Chrome OS
 
-Google's Chrome OS system does not normally permit access to a terminal. A simple terminal can be opened up using ctrl + alt + t, but this combination won't give you the fully capabilities of a Linux shell. It is therefore highly recommended that the user install `crouton`, short for Chromium OS Universal Chroot Environment.
+Google's Chrome OS system does not normally permit access to a terminal. A simple terminal can be opened up using ctrl + alt + t, but this combination won't give you the fully capabilities of a Linux shell. It is therefore highly recommended that you install `crouton`, short for Chromium OS Universal Chroot Environment.
 
-You can view documentation on how to install crouton [here](https://github.com/dnschneid/crouton). Please note that this requires putting your chromebook in developer mode! It is recommended that the user only install a command line (i.e. server) version of Ubuntu, as running another desktop environment on top of Chrome OS may slow things down. The relevant command for a CLI-only installation of crouton is:
+You can view documentation on how to install crouton [here](https://github.com/dnschneid/crouton). Please note that this requires putting your chromebook in developer mode! It is recommended that you only install a command line (i.e. server) version of Ubuntu, as running another desktop environment on top of Chrome OS may slow things down. The relevant command for a CLI-only installation of crouton is:
 
 `sudo sh ~/Downloads/crouton -t core,cli-extra`
 
