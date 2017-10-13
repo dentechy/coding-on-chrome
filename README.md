@@ -144,7 +144,7 @@ It is recommended that the user setup ssh keys on their system to secure the ssh
 
 6. Test the connection. If all goes well, you will be greeted by the terminal in your browser tab!
 
-
+![ssh connection](assets/ssh-success.PNG)
 
 
 
