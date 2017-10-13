@@ -126,10 +126,8 @@ Setting up the actual ssh server requires a few additional steps:
 
 1. Install ssh server:
   * `sudo apt-get update && sudo apt-get install openssh-server`
-
 2. Install iptables:
   * `sudo apt-get install iptables`
-
 3. Open the file `/etc/rc.local` to open firewall for ssh server:
   * `vi /etc/rc.local`
   * Add this line to the file before the `exit 0`
