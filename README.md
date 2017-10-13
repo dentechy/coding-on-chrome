@@ -133,9 +133,9 @@ Setting up the actual ssh server requires a few additional steps:
 
 3. Open the file `/etc/rc.local` to open firewall for ssh server:
 
-  i. `vi /etc/rc.local`
+  * `vi /etc/rc.local`
   
-  ii. Add this line to the file before the `exit 0`:
+  * Add this line to the file before the `exit 0`
     
     * `/sbin/iptables -I INPUT -p tcp --dport 22 -j ACCEPT`
 
