@@ -100,14 +100,14 @@ Windows 10 users can rejoice as Microsoft partnered with Canonical to create Bas
         - `vi sshd.vbs` 
         - Add the following code, making sure to put in your actual user name: 
 
-    ```
-    Set WinScriptHost = CreateObject("WScript.Shell")
-    WinScriptHost.Run Chr(34) & "C:\Users\YourUserName\Documents\sshd.bat" & Chr(34), 0
-    Set WinScriptHost = Nothing
-    ```
+        ```
+        Set WinScriptHost = CreateObject("WScript.Shell")
+        WinScriptHost.Run Chr(34) & "C:\Users\YourUserName\Documents\sshd.bat" & Chr(34), 0
+        Set WinScriptHost = Nothing
+        ```
 
-            - Save the file and move it to a more accessible location such as `/mnt/c/Users/YourUserName/Documents`.
-            - Open start menu, type `run`. Then type `shell:startup`. Copy the vbs file over to the Startup folder
+        - Save the file and move it to a more accessible location such as `/mnt/c/Users/YourUserName/Documents`.
+        - Open start menu, type `run`. Then type `shell:startup`. Copy the vbs file over to the Startup folder
     3. If configured properly, the ssh server should now automatically start in the background when Windows starts.
 
 ### Chrome OS
@@ -144,15 +144,17 @@ It is recommended for users to setup ssh keys on their system to secure the ssh 
 1. Generate keys with 4096 bit RSA encryption:
     - `ssh-keygen -t rsa -b 4096`
 2. The following prompts should appear. It is up to you whether or not you decide to password protect your ssh keys. This security helps if someone gets access to your computer and your keys:
-  ```
-  Generating public/private rsa key pair.
-  Enter file in which to save the key (/home/username/.ssh/id_rsa):
-  Enter passphrase (empty for no passphrase):
-  Enter same passphrase again:
-  Your identification has been saved in /home/username/.ssh/id_rsa.
-  Your public key has been saved in /home/username/.ssh/id_rsa.pub.
-  ```
-        - Note that you have the option to give the keys a specific name and location to be saved
+
+        ```
+        Generating public/private rsa key pair.
+        Enter file in which to save the key (/home/username/.ssh/id_rsa):
+        Enter passphrase (empty for no passphrase):
+        Enter same passphrase again:
+        Your identification has been saved in /home/username/.ssh/id_rsa.
+        Your public key has been saved in /home/username/.ssh/id_rsa.pub.
+        ```
+
+    - Note that you have the option to give the keys a specific name and location to be saved
 3. Depending on your system, you might have to copy both the public key and private key to a separate folder, for easy access for the extension. 
     1. For example on Linux and mac OS:
         - `cd ~/.ssh`
