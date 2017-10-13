@@ -133,7 +133,7 @@ It is recommended that the user setup ssh keys on their system to secure the ssh
   * For example on Linux and mac OS:
     * `cp id_rsa id_rsa.pub ~/Documents`
   * Similarly on Windows 10 you could run:
-    * `cp id_rsa id_rsa /mnt/c/Users/YourUserName/Documents`
+    * `cp id_rsa id_rsa.pub /mnt/c/Users/YourUserName/Documents`
 4. After creating the keys and moving them, start up the Secure Shell extension and type in your username and IP address. If the ssh server is on the same machine it should just be `username@localhost`. Make sure to specify the port if you changed it or are using Windows 10!
 
 ![chrome secure shell setup](assets/chrome-ssh3.PNG)
@@ -141,6 +141,11 @@ It is recommended that the user setup ssh keys on their system to secure the ssh
 5. Import your ssh keys as follows as shown in the screenshot. Make sure to import both the private and public keys by using ctrl + click, or shift + click (mac OS)
 
 ![ssh keys import](assets/importing-ssh-keys.PNG)
+
+6. Test the connection. If all goes well, you will be greeted by the terminal in your browser tab!
+
+
+
 
 
 
