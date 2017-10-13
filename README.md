@@ -125,13 +125,13 @@ You can view documentation on how to install crouton [here](https://github.com/d
 Setting up the actual ssh server requires a few additional steps:
 
 1. Install ssh server:
-  1. `sudo apt-get update && sudo apt-get install openssh-server`
+    1. `sudo apt-get update && sudo apt-get install openssh-server`
 2. Install iptables:
-  1. `sudo apt-get install iptables`
+    1. `sudo apt-get install iptables`
 3. Open the file `/etc/rc.local` to open firewall for ssh server:
-  1. `vi /etc/rc.local`
-  2. Add this line to the file before the `exit 0`
-    - `/sbin/iptables -I INPUT -p tcp --dport 22 -j ACCEPT`
+    1. `vi /etc/rc.local`
+    2. Add this line to the file before the `exit 0`
+        - `/sbin/iptables -I INPUT -p tcp --dport 22 -j ACCEPT`
 4. To enable ssh into chroot, add these lines to `/etc/rc.local`
 
 ```
