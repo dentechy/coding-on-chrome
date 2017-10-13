@@ -113,6 +113,41 @@ Windows 10 users can rejoice as Microsoft partnered with Canonical to create Bas
     * Open start menu, type `run`. Then type `shell:startup`. Copy the vbs file over to the Startup folder
   * If configured properly, the ssh server should now automatically start in the background when Windows starts.
 
+### Chrome OS
+
+Google's Chrome OS system does not normally permit access to a terminal. A simple terminal can be opened up using ctrl + alt + t, but this combination won't give you the fully capabilities of a Linux shell. It is therefore highly recommended that the user install `crouton`, short for Chromium OS Universal Chroot Environment.
+
+You can view documentation on how to install crouton [here](https://github.com/dnschneid/crouton). Please note that this requires putting your chromebook in developer mode! It is recommended that the user only install a command line (i.e. server) version of Ubuntu, as running another desktop environment on top of Chrome OS may slow things down. The relevant command for a CLI-only installation of crouton is:
+
+`sudo sh ~/Downloads/crouton -t core,cli-extra`
+
+Setting up the actual ssh server requires a few additional steps:
+
+1. Install ssh server:
+
+  * `sudo apt-get update && sudo apt-get install openssh-server`
+
+2. Install iptables:
+
+  * `sudo apt-get install iptables`
+
+3. Open the file `/etc/rc.local` to open firewall for ssh server:
+
+  i. `vi /etc/rc.local`
+  
+  ii. Add this line to the file before the `exit 0`:
+    
+    * `/sbin/iptables -I INPUT -p tcp --dport 22 -j ACCEPT`
+
+4. To enable ssh into chroot, add these lines to `/etc/rc.local`
+
+```
+mkdir -p -m0755 /var/run/sshd
+/usr/sbin/sshd
+```
+
+5. If setup properly, the ssh server will now run every time you start the chroot!
+
 ## Logging in to SSH server
 
 It is recommended for users to setup ssh keys on their system to secure the ssh server from unauthorized logins. By default, the ssh server will allow password logins which are initially needed to setup the keys to begin with. To generate ssh keys, follow these steps:
