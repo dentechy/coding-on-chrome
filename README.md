@@ -93,7 +93,7 @@ Windows 10 users can rejoice as Microsoft partnered with Canonical to create Bas
 
 2. The ssh server must be turned on every time you run Bash on Ubuntu on Windows, as by default it is off. Use this command to turn it on:
 
-  `sudo service ssh start` [starts ssh server]
+  * `sudo service ssh start` [starts ssh server]
 
 
 3. Alternatively, simple scripts can be written to automatically start the ssh server automatically:
@@ -114,6 +114,35 @@ Windows 10 users can rejoice as Microsoft partnered with Canonical to create Bas
   * If configured properly, the ssh server should now automatically start in the background when Windows starts.
 
 ## Logging in to SSH server
+
+It is recommended that the user setup ssh keys on their system to secure the ssh server from unauthorized logins. By default, the ssh server will allow password logins which are initially needed to setup the keys to begin with. To generate ssh keys, follow these steps:
+
+1. Generate keys with 4096 bit RSA encryption:
+  * `ssh-keygen -t rsa -b 4096
+2. The following prompts should appear. It is up to you whether or not you decide to password protect your ssh keys. This security helps if someone gets access to your computer and your keys:
+  * ```
+  Generating public/private rsa key pair.
+  Enter file in which to save the key (/home/username/.ssh/id_rsa):
+  Enter passphrase (empty for no passphrase):
+  Enter same passphrase again:
+  Your identification has been saved in /home/b/.ssh/id_rsa.
+  Your public key has been saved in /home/b/.ssh/id_rsa.pub.
+  ```
+  * Note that you have the option to give the keys a specific name and location to be saved
+3. Depending on your system, you might have to copy both the public key and private key to a separate folder, for easy access for the extension. 
+  * For example on Linux and mac OS:
+    * `cp id_rsa id_rsa.pub ~/Documents`
+  * Similarly on Windows 10 you could run:
+    * `cp id_rsa id_rsa /mnt/c/Users/YourUserName/Documents`
+4. After creating the keys and moving them, start up the Secure Shell extension and type in your username and IP address. If the ssh server is on the same machine it should just be `username@localhost`. Make sure to specify the port if you changed it or are using Windows 10!
+
+![chrome secure shell setup](assets/chrome-ssh3.PNG)
+
+5. Import your ssh keys as follows as shown in the screenshot. Make sure to import both the private and public keys by using ctrl + click, or shift + click (mac OS)
+
+![ssh keys import](assets/importing-ssh-keys.PNG)
+
+
 
 
 
