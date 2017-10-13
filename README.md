@@ -8,7 +8,7 @@ This tutorial below will set up Chrome as a development environment. It should w
 
 The end result will be a terminal that can be accessed in a browser tab, as shown below. 
 
-![chrome coding screenshot](assets/chrome-tmux.PNG)
+![chrome coding screenshot](assets/chrome-tmux2.PNG)
 
 ## Prerequisites
 
@@ -93,7 +93,27 @@ Windows 10 users can rejoice as Microsoft partnered with Canonical to create Bas
 
 2. The ssh server must be turned on every time you run Bash on Ubuntu on Windows, as by default it is off. Use this command to turn it on:
 
-`sudo service ssh start` [starts ssh server]
+  `sudo service ssh start` [starts ssh server]
+
+
+3. Alternatively, simple scripts can be written to automatically start the ssh server automatically:
+  * Create a sshd.bat file and edit it with the following commands:
+    * `vi sshd.bat`
+    * Add the following code: `C:\Windows\System32\bash.exe -c "sudo /usr/sbin/sshd -D"`
+    * Save the file and move it to a more accessible location such as `/mnt/c/Users/YourUserName/Documents`. Take note of this location for the next step as in Windows language this corresponds to `C:\Users\YourUserName\Documents`
+  * Create a sshd.vbs file and edit it with the following commands:
+    * `vi sshd.vbs` 
+    * Add the following code, making sure to put in your actual user name: 
+    ```
+    Set WinScriptHost = CreateObject("WScript.Shell")
+    WinScriptHost.Run Chr(34) & "C:\Users\YourUserName\Documents\sshd.bat" & Chr(34), 0
+    Set WinScriptHost = Nothing
+    ```
+    * Save the file and move it to a more accessible location such as `/mnt/c/Users/YourUserName/Documents`.
+    * Open start menu, type run. Then type `shell:startup`. Copy the vbs file over to the Startup folder
+  * If configured properly, the ssh server should now automatically start in the background when Windows starts.
+
+## Logging in to SSH server
 
 
 
