@@ -8,7 +8,7 @@ This tutorial below will set up Chrome as a development environment. It should w
 
 The end result will be a terminal that can be accessed in a browser tab, as shown below. 
 
-![chrome coding screenshot](assets/chrome-tmux2.PNG)
+![chrome coding screenshot](assets/chrome-tmux2.png)
 
 ## Prerequisites
 
