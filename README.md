@@ -18,8 +18,9 @@ The following software will be needed to successfully code in Chrome:
 * Secure Shell Chrome Extension
 * Terminal (built-in for mac OS and Linux users)
 * Bash on Ubuntu on Windows (for Windows 10 users)
+* Crouton (for Chrome OS users)
 * SSH server
-* Vim, a command line text editor [recommended]
+* Vim, a command line text editor 
 * Tmux, a terminal multiplexer [recommended]
 
 The general flow is the same across platforms:
@@ -51,7 +52,7 @@ In the extensions menu, scroll down till you find Secure Shell and click "Detail
 
 ![chrome-secure-shell](assets/chrome-ssh1.PNG) ![chrome-secure-shell2](assets/chrome-ssh2.PNG)
 
-The next series of steps will diverge considerably, depending on your platform of choice and whether or not you already have an ssh server setup. Skip to the ssh server login section below if you already have an ssh server running with ssh keys. Keys are recommended over passwords for security purposes.
+The next series of steps will diverge considerably, depending on your platform of choice and whether or not you already have an ssh server setup. Skip to the [ssh server login](#logging-in-to-ssh-server) section below if you already have an ssh server running with ssh keys. Keys are recommended over passwords for security purposes.
 
 ## Setting up the SSH server
 
@@ -115,7 +116,7 @@ Windows 10 users can rejoice as Microsoft partnered with Canonical to create Bas
 
 ### Chrome OS
 
-Google's Chrome OS system does not normally permit access to a terminal. A simple terminal can be opened up using ctrl + alt + t, but this combination won't give you the fully capabilities of a Linux shell. It is therefore highly recommended that you install `crouton`, short for Chromium OS Universal Chroot Environment.
+Google's Chrome OS system does not normally permit access to a full-fledged terminal. A simple terminal can be opened up using ctrl + alt + t, but this combination won't give you the fully capabilities of a Linux shell. It is therefore highly recommended that you install `crouton`, short for Chromium OS Universal Chroot Environment.
 
 You can view documentation on how to install crouton [here](https://github.com/dnschneid/crouton). Please note that this requires putting your chromebook in developer mode! It is recommended that you only install a command line (i.e. server) version of Ubuntu, as running another desktop environment on top of Chrome OS may slow things down. The relevant command for a CLI-only installation of crouton is:
 
