@@ -106,8 +106,8 @@ Windows 10 users can rejoice as Microsoft partnered with Canonical to create Bas
     Set WinScriptHost = Nothing
     ```
 
-        - Save the file and move it to a more accessible location such as `/mnt/c/Users/YourUserName/Documents`.
-        - Open start menu, type `run`. Then type `shell:startup`. Copy the vbs file over to the Startup folder
+        * Save the file and move it to a more accessible location such as `/mnt/c/Users/YourUserName/Documents`.
+        * Open start menu, type `run`. Then type `shell:startup`. Copy the vbs file over to the Startup folder
     3. If configured properly, the ssh server should now automatically start in the background when Windows starts.
 
 ### Chrome OS
