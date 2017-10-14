@@ -153,22 +153,25 @@ It is recommended for users to setup ssh keys on their system to secure the ssh 
         Your public key has been saved in /home/username/.ssh/id_rsa.pub.
 
     - Note that you have the option to give the keys a specific name and location to be saved
-3. Depending on your system, you might have to copy both the public key and private key to a separate folder, for easy access for the extension. 
+3. Now that you generated ssh keys, you will need to authenticate them on your ssh server. This command will require your user password:
+    - `ssh-copy-id -i ~/.ssh/mykey username@localhost`
+Of course be sure to fill in the actual name of your ssh key and username!
+4. Depending on your system, you might have to copy both the public key and private key to a separate folder, for easy access for the extension. 
     1. For example on Linux and mac OS:
         - `cd ~/.ssh`
         - `cp id_rsa id_rsa.pub ~/Documents`
     2. Similarly on Windows 10 you could run:
         - `cd ~/.ssh`
         - `cp id_rsa id_rsa.pub /mnt/c/Users/YourUserName/Documents`
-4. After creating the keys and moving them, start up the Secure Shell extension and type in your username and IP address. If the ssh server is on the same machine it should just be `username@localhost`. Make sure to specify the port if you changed it or are using Windows 10!
+5. After creating the keys and moving them, start up the Secure Shell extension and type in your username and IP address. If the ssh server is on the same machine it should just be `username@localhost`. Make sure to specify the port if you changed it or are using Windows 10!
 
 ![chrome secure shell setup](assets/chrome-ssh3.PNG)
 
-5. Import your ssh keys as follows as shown in the screenshot. Make sure to import both the private and public keys by using ctrl + click, or shift + click (mac OS)
+6. Import your ssh keys as follows as shown in the screenshot. Make sure to import both the private and public keys by using ctrl + click, or shift + click (mac OS)
 
 ![ssh keys import](assets/importing-ssh-keys.PNG)
 
-6. Test the connection. If all goes well, you will be greeted by the terminal in your browser tab!
+7. Test the connection. If all goes well, you will be greeted by the terminal in your browser tab!
 
 ![ssh connection](assets/ssh-success.png)
 
