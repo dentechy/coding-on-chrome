@@ -154,7 +154,9 @@ It is recommended for users to setup ssh keys on their system to secure the ssh 
 
     - Note that you have the option to give the keys a specific name and location to be saved
 3. Now that you generated ssh keys, you will need to authenticate them on your ssh server. This command will require your user password:
+
     - `ssh-copy-id -i ~/.ssh/mykey username@localhost`
+
 Of course be sure to fill in the actual name of your ssh key and username!
 4. Depending on your system, you might have to copy both the public key and private key to a separate folder, for easy access for the extension. 
     1. For example on Linux and mac OS:
