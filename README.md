@@ -95,7 +95,7 @@ Windows 10 users can rejoice as Microsoft partnered with Canonical to create Bas
     1. Create a sshd.bat file and edit it with the following commands:
         - `vi sshd.bat`
         - Add the following code: `C:\Windows\System32\bash.exe -c "sudo /usr/sbin/sshd -D"`
-        - Save the file and move it to a more accessible location, e.g. `cd /mnt/c/Users/YourUserName/Documents`. Make sure to match your username! Take note of this location for the next step as in Windows language this corresponds to `C:\Users\YourUserName\Documents`
+        - Save the file and move it to a more accessible location, e.g. `mv ssh.bat /mnt/c/Users/YourUserName/Documents`. Make sure to match your username! Take note of this location for the next step as in Windows language this corresponds to `C:\Users\YourUserName\Documents`
     2. Create a sshd.vbs file and edit it with the following commands:
         - `vi sshd.vbs` 
         - Add the following code, making sure to put in your actual user name: 
@@ -106,7 +106,7 @@ Windows 10 users can rejoice as Microsoft partnered with Canonical to create Bas
         Set WinScriptHost = Nothing
         ```
 
-        - Save the file and move it to a more accessible location such as `/mnt/c/Users/YourUserName/Documents`.
+        - Save the file and move it to a more accessible location, e.g. `mv sshd.vbs /mnt/c/Users/YourUserName/Documents`.
         - Open start menu, type `run`. Then type `shell:startup`. Copy the vbs file over to the Startup folder
     3. If configured properly, the ssh server should now automatically start in the background when Windows starts.
 
