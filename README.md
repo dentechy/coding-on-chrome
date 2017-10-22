@@ -85,7 +85,7 @@ Windows 10 users can rejoice as Microsoft partnered with Canonical to create Bas
 1. Uninstall and reinstall the ssh server using the following commands:
     1. `sudo apt remove openssh-server` 
     2. `sudo apt install openssh-server`
-    3. Run the command `sudo vi /etc/ssh/sshd_config` file in vim and do the following
+    3. Edit the `/etc/ssh/sshd_config` file by running the command `sudo vi /etc/ssh/sshd_config` and do the following
         - Change `Port` to 2222 (or any other port above 1000)
         - Change `UsePrivilegeSeparation` to no
         - Change `PasswordAuthentication` to yes. This will be initially necessary for logging in to the ssh server and setting up keys in the next section.
