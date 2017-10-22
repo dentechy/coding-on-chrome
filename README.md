@@ -82,12 +82,14 @@ Given the large number of Linux distributions, it is impossible to cover each on
 
 Windows 10 users can rejoice as Microsoft partnered with Canonical to create Bash on Ubuntu on Windows, running through a technology called the Windows Subsystem for Linux. Most command line based tools should work with this tool, including the ssh server. There are a few details to address though for this to properly work.
 
-1. Run the following commands to install the ssh server:
-    1. `sudo apt-get install openssh-server` 
-    2. Run the command `sudo vi /etc/ssh/sshd_config` file in vim and do the following
+1. Uninstall and reinstall the ssh server using the following commands:
+    1. `sudo apt remove openssh-server` 
+    2. `sudo apt install openssh-server`
+    3. Run the command `sudo vi /etc/ssh/sshd_config` file in vim and do the following
         - Change `Port` to 2222 (or any other port above 1000)
         - Change `UsePrivilegeSeparation` to no
-    3. Restart the ssh server:
+        - Change `PasswordAuthentication` to yes. This will be initially necessary for logging in to the ssh server and setting up keys in the next section.
+    4. Restart the ssh server:
         - `sudo service ssh --full-restart`  
 2. The ssh server must be turned on every time you run Bash on Ubuntu on Windows, as by default it is off. Use this command to turn it on:
     1. `sudo service ssh start` [starts ssh server]
@@ -108,7 +110,9 @@ Windows 10 users can rejoice as Microsoft partnered with Canonical to create Bas
 
         - Save the file and move it to a more accessible location, e.g. `mv sshd.vbs /mnt/c/Users/YourUserName/Documents`.
         - Open start menu, type `run`. Then type `shell:startup`. Copy the vbs file over to the Startup folder
-    3. If configured properly, the ssh server should now automatically start in the background when Windows starts.
+    3. Finally, you will need to configure the ssh server to start without requiring password. Run the command `sudo visudo` and add this line to the end of the file:
+        - `%sudo ALL=NOPASSWD: /usr/sbin/sshd`
+    4. If configured properly, the ssh server should now automatically start in the background when Windows starts.
 
 ### Chrome OS
 
@@ -125,7 +129,7 @@ Setting up the actual ssh server requires a few additional steps:
 2. Install iptables:
     1. `sudo apt-get install iptables`
 3. Open the file `/etc/rc.local` to open firewall for ssh server:
-    1. `vi /etc/rc.local`
+    1. `sudo vi /etc/rc.local`
     2. Add this line to the file before the `exit 0`
         - `/sbin/iptables -I INPUT -p tcp --dport 22 -j ACCEPT`
 4. To enable ssh into chroot, add these lines to `/etc/rc.local`
@@ -152,29 +156,33 @@ It is recommended for users to setup ssh keys on their system to secure the ssh 
         Your identification has been saved in /home/username/.ssh/id_rsa.
         Your public key has been saved in /home/username/.ssh/id_rsa.pub.
 
-    - Note that you have the option to give the keys a specific name and location to be saved
-3. Now that you generated ssh keys, you will need to authenticate them on your ssh server. This command will require your user password:
+    - Note that you have the option to give the keys a specific name and location to be saved. If using multiple keys (e.g. for managing different systems) it's highly recommended to give your keys unique names.
+3. Now that you generated ssh keys, you will need to authenticate them on your ssh server. This command will prompt you for your user password:
 
     - `ssh-copy-id -i ~/.ssh/mykey username@localhost`
 
-    Of course be sure to fill in the actual name of your ssh key and username!
+    Of course be sure to fill in the actual name of your ssh key and username! Also note that if you changed the port (specifically Windows 10 users) you will need to specify as follows:
 
-4. Depending on your system, you might have to copy both the public key and private key to a separate folder, for easy access for the extension. 
+    - `ssh-copy-id -i ~/.ssh/mykey -p 2222 username@localhost`
+
+4. Now that you have authenticated your ssh keys, you might want to disable `PasswordAuthentication` for your ssh server. Run the command `sudo vi /etc/ssh/sshd_config` and change `PasswordAuthentication` to `no`. 
+
+5. Depending on your system, you might have to copy both the public key and private key to a separate folder, for easy access for the Secure Shell extension. 
     1. For example on Linux and mac OS:
         - `cd ~/.ssh`
         - `cp id_rsa id_rsa.pub ~/Documents`
     2. Similarly on Windows 10 you could run:
         - `cd ~/.ssh`
         - `cp id_rsa id_rsa.pub /mnt/c/Users/YourUserName/Documents`
-5. After creating the keys and moving them, start up the Secure Shell extension and type in your username and IP address. If the ssh server is on the same machine it should just be `username@localhost`. Make sure to specify the port if you changed it or are using Windows 10!
+6. After creating the keys and moving them, start up the Secure Shell extension and type in your username and IP address. If the ssh server is on the same machine it should just be `username@localhost`. Make sure to specify the port if you changed it or are using Windows 10!
 
 ![chrome secure shell setup](assets/chrome-ssh3.PNG)
 
-6. Import your ssh keys as follows as shown in the screenshot. Make sure to import both the private and public keys by using ctrl + click, or shift + click (mac OS)
+7. Import your ssh keys as follows as shown in the screenshot. Make sure to import both the private and public keys by using ctrl + click, or shift + click (mac OS)
 
 ![ssh keys import](assets/importing-ssh-keys.PNG)
 
-7. Test the connection. If all goes well, you will be greeted by the terminal in your browser tab!
+8. Test the connection. If all goes well, you will be greeted by the terminal in your browser tab!
 
 ![ssh connection](assets/ssh-success.png)
 
