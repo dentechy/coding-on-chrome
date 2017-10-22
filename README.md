@@ -80,7 +80,7 @@ Given the large number of Linux distributions, it is impossible to cover each on
 
 ### Windows 10
 
-Windows 10 users can rejoice as Microsoft partnered with Canonical to create Bash on Ubuntu on Windows, running through a technology called the Windows Subsystem for Linux. Most command line based tools should work with this tool, including the ssh server. There are a few details to address though for this to properly work.
+Windows 10 users can rejoice as Microsoft partnered with Canonical to create Bash on Ubuntu on Windows, running through a technology called the [Windows Subsystem for Linux](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide). Most command line based tools should work with this tool, including the ssh server. There are a few details to address though for this to properly work.
 
 1. Uninstall and reinstall the ssh server using the following commands:
     1. `sudo apt remove openssh-server` 
